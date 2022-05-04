@@ -1,9 +1,7 @@
 package com.jpa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name="MEMBER")
@@ -12,9 +10,23 @@ public class Member {
     @Id
     @Column(name="ID")
     private String id;
-    private Integer age;
+
     @Column(name="NAME")
     private String username;
+
+    private Integer age;
+
+    @Enumerated
+    private RoleType roleType;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastModifiedDate;
+
+    @Lob
+    private String description;
 
 
     public String getUsername() {
