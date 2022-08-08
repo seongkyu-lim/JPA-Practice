@@ -3,7 +3,9 @@ package com.jpa.domain;
 import com.jpa.RoleType;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Account {
@@ -13,7 +15,6 @@ public class Account {
     @Column(name="ACCOUNT_ID")
     private Long id;
 
-    @Column(name="NAME", nullable = false, length = 10)
     private String name;
     private Integer age;
 
@@ -21,6 +22,17 @@ public class Account {
     private String city;
     private String street;
     private String zipcode;
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    @OneToMany(mappedBy = "account")
+    private List<Order> orders = new ArrayList<>();
 
     public String getName() {
         return name;
