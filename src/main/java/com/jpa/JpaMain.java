@@ -1,5 +1,7 @@
 package com.jpa;
 
+import com.jpa.domain.Member;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -27,7 +29,7 @@ public class JpaMain {
     }
 
     private static void logic(EntityManager em){
-        String id = "id1";
+        Long id = 1L;
         Member member = new Member();
         member.setId(id);
         member.setUsername("성규");

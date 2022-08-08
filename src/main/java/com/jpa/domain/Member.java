@@ -1,4 +1,6 @@
-package com.jpa;
+package com.jpa.domain;
+
+import com.jpa.RoleType;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,13 +13,43 @@ import java.util.Date;
 public class Member {
 
     @Id
-    @Column(name="ID")
-    private String id;
+    @GeneratedValue
+    @Column(name="MEMBER_ID")
+    private Long id;
 
     @Column(name="NAME", nullable = false, length = 10)
-    private String username;
+    private String name;
 
     private Integer age;
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    private String city;
+    private String street;
+    private String zipcode;
+
 
     @Enumerated
     private RoleType roleType;
@@ -33,11 +65,11 @@ public class Member {
 
 
     public String getUsername() {
-        return username;
+        return name;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.name = username;
     }
 
     public Integer getAge() {
@@ -48,10 +80,10 @@ public class Member {
         this.age = age;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }
