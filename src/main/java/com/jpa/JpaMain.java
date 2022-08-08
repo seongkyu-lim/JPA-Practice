@@ -1,6 +1,7 @@
 package com.jpa;
 
 import com.jpa.domain.Member;
+import com.jpa.domain.Team;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -29,7 +30,10 @@ public class JpaMain {
     }
 
     private static void logic(EntityManager em){
-        Long id = 1L;
+        /*
+            3장 영속성 관리.
+         */
+        String id = "1";
         Member member = new Member();
         member.setId(id);
         member.setUsername("성규");
@@ -52,5 +56,60 @@ public class JpaMain {
         //삭제.
         em.remove(member);
 
+    }
+
+    public static void testSave(EntityManager em){
+        /*
+        5장 연관관계 매핑.
+
+        매핑 생성.
+         */
+        Team team1 = new Team("team1", "팀1");
+        em.persist(team1);
+
+        Member member1 = new Member("member1", "회원1");
+        member1.setTeam(team1);
+        em.persist(member1);
+
+        Member member2 = new Member("member2", "회원2");
+        member2.setTeam(team1);
+        em.persist(member2);
+    }
+
+    public static void queryLogicJoin(EntityManager em){
+        /*
+        5장 연관관계 매핑.
+
+        jpql로 매핑된 테이블 조회.
+         */
+
+        String jpql = "select m from Member m join m.team t where "+"t.name=:teamName";
+
+        List<Member> resultList = em.createQuery(jpql, Member.class)
+                .setParameter("teamName", "팀1")
+                .getResultList();
+
+        for (Member member : resultList){
+            System.out.println("[query] member.username=" +
+                    member.getUsername());
+        }
+    }
+
+    public static void updateRelation(EntityManager em){
+        /*
+        5장 연관관계 매핑.
+
+        매핑된 테이블 값 수정.
+         */
+        Team team2 = new Team("team2", "팀2");
+        em.persist(team2);
+
+        Member member = em.find(Member.class, "member1");
+        member.setTeam(team2);
+    }
+
+    public static void deleteRelation(EntityManager em){
+        Member member1 = em.find(Member.class, "member1");
+        member1.setTeam(null);
     }
 }

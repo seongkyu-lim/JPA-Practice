@@ -12,44 +12,22 @@ import java.util.Date;
 )})
 public class Member {
 
+    public Member(String id, String username) {
+        this.id = id;
+        this.username = username;
+    }
+    public Member(){
+
+    }
     @Id
     @GeneratedValue
     @Column(name="MEMBER_ID")
-    private Long id;
+    private String id;
 
     @Column(name="NAME", nullable = false, length = 10)
-    private String name;
+    private String username;
 
     private Integer age;
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
-    }
-
-    private String city;
-    private String street;
-    private String zipcode;
-
 
     @Enumerated
     private RoleType roleType;
@@ -63,13 +41,28 @@ public class Member {
     @Lob
     private String description;
 
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        if (this.team != null){
+            this.team.getMembers().remove(this);
+        }
+        this.team = team;
+        team.getMembers().add(this);
+    }
+
+    @ManyToOne
+    @JoinColumn(name="TEAM_ID")
+    private Team team;
 
     public String getUsername() {
-        return name;
+        return username;
     }
 
     public void setUsername(String username) {
-        this.name = username;
+        this.username = username;
     }
 
     public Integer getAge() {
@@ -80,10 +73,10 @@ public class Member {
         this.age = age;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

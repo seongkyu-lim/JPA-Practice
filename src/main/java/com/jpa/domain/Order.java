@@ -13,8 +13,8 @@ public class Order {
     @Column(name = "ORDER_ID")
     private Long id;
 
-    @Column(name = "MEMBER_ID")
-    private Long memberId;
+    @Column(name = "ACCOUNT_ID")
+    private Long AccountId;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date orderDate;
