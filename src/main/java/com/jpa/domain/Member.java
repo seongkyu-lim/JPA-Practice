@@ -10,7 +10,7 @@ import java.util.Date;
         name = "NAME_AGE_UNIQUE",
         columnNames = {"NAME", "AGE"}
 )})
-public class Member {
+public class Member extends BaseEntity{
 
     public Member(String id, String username) {
         this.id = id;

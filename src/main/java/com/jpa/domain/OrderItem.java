@@ -1,5 +1,7 @@
 package com.jpa.domain;
 
+import com.jpa.domain.item.Item;
+
 import javax.persistence.*;
 
 @Entity
