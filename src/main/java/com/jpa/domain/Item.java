@@ -16,6 +16,9 @@ public class Item {
     private int price;
     private int stockQuantity; // 재고수량.
 
+    @ManyToMany(mappedBy = "items")
+    private List<Category> categories = new ArrayList<>();
+
     public String getName() {
         return name;
     }
