@@ -41,6 +41,9 @@ public class Member extends BaseEntity{
     @Lob
     private String description;
 
+    @Embedded
+    private Address address;
+
     public Team getTeam() {
         return team;
     }
