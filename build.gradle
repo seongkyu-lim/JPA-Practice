@@ -1,22 +1,30 @@
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '3.0.0'
+    id 'io.spring.dependency-management' version '1.1.0'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'com.jpa'
+version '0.0.1-SNAPSHOT'
+sourceCompatibility '17'
+targetCompatibility '17'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation 'org.hibernate:hibernate-entitymanager:5.6.8.Final'
-    implementation 'com.h2database:h2:2.1.212'
-    runtimeOnly 'com.h2database:h2:2.1.212'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.hibernate:hibernate-entitymanager'
+    implementation 'com.h2database:h2'
+    runtimeOnly 'com.h2database:h2'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.6'
+
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
 
-test {
+tasks.named('test') {
     useJUnitPlatform()
 }
