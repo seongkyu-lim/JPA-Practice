@@ -15,28 +15,28 @@ public class Order extends BaseEntity{
     @Column(name = "ORDER_ID")
     private Long id;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date orderDate;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "MEMBER_ID")
+    private Member member;
 
-    private OrderStatus status;
-
-    @ManyToOne
-    @JoinColumn(name = "ACCOUNT_ID")
-    private Account account;
-
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "DELIVERY_ID")
     private Delivery delivery;
 
-    public void setAccount(Account account){
-        if (this.account != null){
-            this.account.getOrders().remove(this);
+    private Date orderDate;
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
+
+    public void setMember(Member member){
+        if (this.member != null){
+            this.member.getOrders().remove(this);
         }
-        this.account = account;
-        account.getOrders().add(this);
+        this.member = member;
+        member.getOrders().add(this);
     }
 
     public void addOrderItem(OrderItem orderItem){

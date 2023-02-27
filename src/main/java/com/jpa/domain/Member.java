@@ -49,4 +49,9 @@ public class Member extends BaseEntity{
     public void setId(String id) {
         this.id = id;
     }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
 }
