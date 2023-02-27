@@ -36,7 +36,7 @@ public class JpaMain {
         String id = "1";
         Member member = new Member();
         member.setId(id);
-        member.setUsername("성규");
+        member.setName("성규");
         member.setAge(25);
 
         //생성.
@@ -47,7 +47,7 @@ public class JpaMain {
 
         //단건 조회.
         Member findMember  = em.find(Member.class, id);
-        System.out.println("findMember = " + findMember.getUsername() + ", age = " + findMember.getAge());
+        System.out.println("findMember = " + findMember.getName() + ", age = " + findMember.getAge());
 
         //목록 조회.
         List<Member> memberList =  em.createQuery("select m from Member m", Member.class).getResultList();
@@ -91,7 +91,7 @@ public class JpaMain {
 
         for (Member member : resultList){
             System.out.println("[query] member.username=" +
-                    member.getUsername());
+                    member.getName());
         }
     }
 

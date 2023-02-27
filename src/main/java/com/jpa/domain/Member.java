@@ -12,9 +12,9 @@ import java.util.Date;
 )})
 public class Member extends BaseEntity{
 
-    public Member(String id, String username) {
+    public Member(String id, String name) {
         this.id = id;
-        this.username = username;
+        this.name = name;
     }
     public Member(){
 
@@ -25,7 +25,7 @@ public class Member extends BaseEntity{
     private String id;
 
     @Column(name="NAME", nullable = false, length = 10)
-    private String username;
+    private String name;
 
     private Integer age;
 
@@ -60,12 +60,12 @@ public class Member extends BaseEntity{
     @JoinColumn(name="TEAM_ID")
     private Team team;
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getAge() {
