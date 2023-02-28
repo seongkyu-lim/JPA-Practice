@@ -1,6 +1,6 @@
 package com.jpa.domain;
 
-import com.jpa.OrderStatus;
+import com.jpa.domain.enums.OrderStatus;
 
 import javax.persistence.*;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package com.jpa.domain;
 
-import com.jpa.DeliveryStatus;
+import com.jpa.domain.enums.DeliveryStatus;
 
 import javax.persistence.*;
 
