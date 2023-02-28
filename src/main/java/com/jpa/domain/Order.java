@@ -5,6 +5,7 @@ import com.jpa.domain.enums.OrderStatus;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -95,5 +96,13 @@ public class Order extends BaseEntity{
     public void setDelivery(Delivery delivery){
         this.delivery = delivery;
         delivery.setOrder(this);
+    }
+
+    public Object getStatus() {
+        return status;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
     }
 }

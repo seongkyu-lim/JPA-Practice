@@ -55,4 +55,7 @@ public class Member extends BaseEntity{
         return address;
     }
 
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 }
