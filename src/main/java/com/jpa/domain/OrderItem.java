@@ -5,6 +5,7 @@ import com.jpa.domain.item.Item;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "ORDER_ITEM")
 public class OrderItem {
    @Id
    @GeneratedValue
@@ -13,10 +14,10 @@ public class OrderItem {
 
    private int orderPrice;
    private int count;
-   @ManyToOne
+   @ManyToOne(fetch = FetchType.LAZY)
    @JoinColumn(name = "ORDER_ID")
    private Order order;
-   @ManyToOne
+   @ManyToOne(fetch = FetchType.LAZY)
    @JoinColumn(name ="ITEM_ID")
    private Item item;
 
