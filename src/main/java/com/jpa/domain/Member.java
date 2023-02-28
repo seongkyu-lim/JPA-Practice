@@ -6,8 +6,8 @@ import java.util.List;
 
 @Entity
 @Table(name="MEMBER", uniqueConstraints = {@UniqueConstraint(
-        name = "NAME_AGE_UNIQUE",
-        columnNames = {"NAME", "AGE"}
+        name = "NAME_UNIQUE",
+        columnNames = {"NAME"}
 )})
 public class Member extends BaseEntity{
 
