@@ -11,7 +11,7 @@ import java.util.List;
 )})
 public class Member extends BaseEntity{
 
-    public Member(String id, String name) {
+    public Member(Long id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -21,7 +21,7 @@ public class Member extends BaseEntity{
     @Id
     @GeneratedValue
     @Column(name="MEMBER_ID")
-    private String id;
+    private Long id;
 
     @Column(name="NAME", nullable = false, length = 10)
     private String name;
@@ -40,10 +40,10 @@ public class Member extends BaseEntity{
         this.name = name;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
