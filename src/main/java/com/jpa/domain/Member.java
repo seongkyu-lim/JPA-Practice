@@ -51,4 +51,8 @@ public class Member extends BaseEntity{
         return orders;
     }
 
+    public Address getAddress(){
+        return address;
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.jpa.domain;
 
 import com.jpa.domain.item.Item;
+import com.jpa.domain.item.NotEnoughStockException;
 
 import javax.persistence.*;
 
@@ -20,6 +21,23 @@ public class OrderItem {
    @ManyToOne(fetch = FetchType.LAZY)
    @JoinColumn(name ="ITEM_ID")
    private Item item;
+
+   public static OrderItem createOrderItem(Item item, int orderPrice, int count) throws NotEnoughStockException {
+      OrderItem orderItem = new OrderItem();
+      orderItem.setItem(item);
+      orderItem.setOrderPrice(orderPrice);
+      orderItem.setCount(count);
+      item.removeStock(count);
+      return orderItem;
+   }
+
+   public void cancel(){
+      getItem().addStock(count);
+   }
+
+   public int getTotalPrice(){
+      return getOrderPrice()*getCount();
+   }
 
    public Order getOrder() {
       return order;

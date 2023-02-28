@@ -7,6 +7,10 @@ import javax.persistence.*;
 @Entity
 public class Delivery {
 
+    public Delivery(Address address){
+        this.address = address;
+    }
+
     @Id
     @GeneratedValue
     @Column(name = "DELIVERY_ID")
