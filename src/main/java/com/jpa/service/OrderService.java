@@ -1,9 +1,6 @@
 package com.jpa.service;
 
-import com.jpa.domain.Delivery;
-import com.jpa.domain.Member;
-import com.jpa.domain.Order;
-import com.jpa.domain.OrderItem;
+import com.jpa.domain.*;
 import com.jpa.domain.item.Item;
 import com.jpa.domain.item.NotEnoughStockException;
 import com.jpa.repository.MemberRepository;
