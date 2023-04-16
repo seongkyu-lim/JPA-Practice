@@ -16,15 +16,15 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.hibernate:hibernate-entitymanager'
-    implementation group: 'org.springframework', name: 'spring-orm', version: '5.3.24'
+    implementation 'org.springframework:spring-orm'
 
     implementation 'com.h2database:h2'
     testImplementation 'junit:junit:4.13.1'
     runtimeOnly 'com.h2database:h2'
-    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.6'
+    implementation 'org.slf4j:slf4j-api'
 
-//    implementation 'javax.servlet:jstl'
-//    implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
+    implementation 'javax.servlet:jstl'
+    implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
 
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
