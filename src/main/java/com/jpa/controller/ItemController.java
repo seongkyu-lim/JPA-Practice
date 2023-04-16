@@ -16,7 +16,7 @@ public class ItemController {
 
     @GetMapping(value = "/items/new")
     public String createForm() {
-        return "items/createItemForm";
+        return "jsp/items/createItemForm";
     }
 
     @PostMapping(value = "/items/new")
