@@ -22,7 +22,7 @@ public class OrderItem {
    @JoinColumn(name ="ITEM_ID")
    private Item item;
 
-   public static OrderItem createOrderItem(Item item, int orderPrice, int count) throws NotEnoughStockException {
+   public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
       OrderItem orderItem = new OrderItem();
       orderItem.setItem(item);
       orderItem.setOrderPrice(orderPrice);

@@ -55,7 +55,7 @@ public class OrderServiceTest {
 
     @Test
     @DisplayName("상품주문 재고수량초과할 경우 에러를 낸다.")
-    void 상품주문_재고수량초과() throws Exception, NotEnoughStockException {
+    void 상품주문_재고수량초과() {
         NotEnoughStockException thrown = assertThrows(NotEnoughStockException.class, ()->{
             //Given
             Member member = createMember();
